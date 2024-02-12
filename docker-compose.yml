@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+    
+    sise-elastic:
+        image: sise-elastic
+        container_name: sise-elastic
+        privileged: true
+        build:
+            context: ./dck_elastic
+            dockerfile: Dockerfile
+        ports:
+            - 9300:9300
+            - 9200:9200
+
+    sise-kibana:
+        image: sise-kibana
+        container_name: sise-kibana
+        privileged: true
+        build:
+            context: ./dck_kibana
+            dockerfile: Dockerfile
+        ports:
+        - 5601:5601
+
+# docker run -itd --privileged -p 5601:5601 --name sise-kibana sise-kibana
+# docker run -itd --privileged -p 9300:9300 -p 9200:9200 --name sise-elastic sise-elastic
