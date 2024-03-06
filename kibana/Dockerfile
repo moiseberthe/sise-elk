@@ -15,11 +15,17 @@ RUN apt list --upgradable
 #RUN apt install elasticsearch -y
 RUN apt install kibana logstash -y
 #RUN apt install filebeat -y
+RUN apt update -y
+RUN apt install nginx -y
+RUN apt install nano -y
 RUN sed -i".bak" 's/^\#PermitRootLogin prohibit-password/PermitRootLogin Yes/' /etc/ssh/sshd_config
 EXPOSE 22
 EXPOSE 8888
 EXPOSE 5601
+COPY logstash /etc/init.d/logstash
+COPY data_exo1.log /etc/logstash/td.log
 COPY kibana.yml /etc/kibana/
+COPY app/ sise-kibana:/var/www/html/sise
 COPY demo.sh /entrypoint.sh
 RUN chown root.kibana /etc/kibana/kibana.yml
 RUN chmod +x /entrypoint.sh

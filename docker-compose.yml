@@ -3,7 +3,7 @@ version: '3'
 services:
     
     sise-elastic:
-        image: sise-elastic
+        image: sise-elastic:v0.2
         container_name: sise-elastic
         build:
             context: ./elastic
@@ -16,13 +16,14 @@ services:
         tty: true
 
     sise-kibana:
-        image: sise-kibana
+        image: sise-kibana:v0.2
         container_name: sise-kibana
         build:
             context: ./kibana
             dockerfile: Dockerfile
         ports:
-        - 5601:5601
+            - 5601:5601
+            - 8080:80
         privileged: true
         stdin_open: true
         tty: true

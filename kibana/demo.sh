@@ -1,4 +1,5 @@
 #!/bin/bash
 #sed -i.bak "s/findlibs.sh\`/findlibs.sh\` -lcrypt -lpam/g" /root/vsftpd/Makefile 
-service ssh start && service kibana start && bash
+export PATH="/usr/share/logstash/bin:$PATH"
+service ssh start && service kibana start && service nginx start && bash
 #bash

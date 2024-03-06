@@ -1,0 +1,35 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          logstash
+# Required-Start:    $network $remote_fs $syslog
+# Required-Stop:     $network $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Logstash
+# Description:       Logstash
+### END INIT INFO
+
+LOGSTASH_HOME=/usr/share/logstash
+LOGSTASH_BIN=${LOGSTASH_HOME}/bin/logstash
+LOGSTASH_CONFIG_DIR=/etc/logstash/conf.d/
+
+case $1 in
+  start)
+    ${LOGSTASH_BIN} -f ${LOGSTASH_CONFIG_DIR}
+    ;;
+  stop)
+    pkill -f ${LOGSTASH_BIN}
+    ;;
+  restart)
+    $0 stop
+    sleep 2
+    $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
