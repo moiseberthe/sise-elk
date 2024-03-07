@@ -35,7 +35,7 @@ Les services seront accessibles aux adresses suivantes :
 
 Votre environnement est prêt.
 
-
+<!-- ```bash
 ## 2. Autres instructions
 
 ### 2.1 Accès au shell du conteneur Kibana
@@ -53,11 +53,10 @@ Cette commande ajoute le répertoire bin de Logstash au chemin d'accès de votre
 
 ### 2.3 Exécution de Logstash
 ```bash
-logstash -f conf.d/sise.conf
+logstash -f conf.d/fichier-de-configuration.conf
 ```
 
 
-```bash
 cd /etc/logstasth/conf.d/
 wget https://raw.githubusercontent.com/moiseberthe/sise-elk/main/correction/td1.conf
 wget https://raw.githubusercontent.com/moiseberthe/sise-elk/main/correction/nginx.conf
@@ -65,4 +64,4 @@ wget https://raw.githubusercontent.com/moiseberthe/sise-elk/main/correction/ngin
 
 ```bash
 docker cp 9b74428f1a0f:/etc/logstash/exo1.txt .
-```
+``` -->
