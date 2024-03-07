@@ -55,3 +55,7 @@ Cette commande ajoute le répertoire bin de Logstash au chemin d'accès de votre
 ```bash
 logstash -f conf.d/sise.conf
 ```
+
+```bash
+docker cp 9b74428f1a0f:/etc/logstash/exo1.txt .
+```
